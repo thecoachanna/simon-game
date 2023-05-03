@@ -40,30 +40,34 @@ function animatePress(currentColor) {
     $("#" + currentColor).addClass("pressed")
     setTimeout(function() {
         $("#" + currentColor).removeClass("pressed")
-    }, 200)
+    }, 100)
 }
 
 function checkAnswer() {
 
-    if (userPattern[userPattern.length-1] === gamePattern[userPattern.length-1]) {
-      if (gamePattern.length === userPattern.length){
+    if (userPattern[userPattern.length-1] === userPattern[currentLevel]) {
+      if (userPattern.length === gamePattern.length){
         setTimeout(function () {
           nextSequence();
         }, 1000);
       }
     } else {
       playSound("wrong");
-        $("body").addClass("game-over");
+      $("body").addClass("game-over");
+      $("#level-title").text("Game Over, Press Any Key to Restart");
+
       setTimeout(function () {
         $("body").removeClass("game-over");
       }, 200);
-      $("h1").text("Game Over, Press Any Key to Restart");
+
       startOver();
     }
 }
 
 function startOver() {
+    level = 0
     gamePattern = []
+    started = false
 }
 
 

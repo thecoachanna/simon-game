@@ -40,7 +40,7 @@ function animatePress(currentColor) {
     $("#" + currentColor).addClass("pressed")
     setTimeout(function() {
         $("#" + currentColor).removeClass("pressed")
-    }, 200)
+    }, 100)
 }
 
 function checkAnswer() {
@@ -63,6 +63,7 @@ function checkAnswer() {
 }
 
 function startOver() {
+    level = 0
     gamePattern = []
 }
 

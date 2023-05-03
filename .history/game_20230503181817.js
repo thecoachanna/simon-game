@@ -40,7 +40,7 @@ function animatePress(currentColor) {
     $("#" + currentColor).addClass("pressed")
     setTimeout(function() {
         $("#" + currentColor).removeClass("pressed")
-    }, 200)
+    }, 100)
 }
 
 function checkAnswer() {
@@ -53,17 +53,21 @@ function checkAnswer() {
       }
     } else {
       playSound("wrong");
-        $("body").addClass("game-over");
+      $("body").addClass("game-over");
+      $("#level-title").text("Game Over, Press Any Key to Restart");
+
       setTimeout(function () {
         $("body").removeClass("game-over");
       }, 200);
-      $("h1").text("Game Over, Press Any Key to Restart");
+
       startOver();
     }
 }
 
 function startOver() {
+    level = 0
     gamePattern = []
+    started = false
 }
 
 
